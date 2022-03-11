@@ -26,12 +26,14 @@ const SubmitInput = ({ onSendInput }) => {
   };
 
   return (
-    <div>
+    <div className="form">
       <form>
+        <label>Enter Your Image URL</label>
+        <br></br>
         <input
           type="text"
           className="search"
-          placeholder="Enter Image URL"
+          placeholder="Image URL"
           name="myImageUrl"
           value={formInput.myImageUrl}
           onChange={(event) => {
@@ -40,6 +42,8 @@ const SubmitInput = ({ onSendInput }) => {
         />
       </form>
       <form>
+        <label>Select Your Overlay Color</label>
+        <br></br>
         <input
           type="color"
           className="search"
@@ -51,10 +55,12 @@ const SubmitInput = ({ onSendInput }) => {
         />
       </form>
       <form>
+        <label>Enter Your Personalized Text</label>
+        <br></br>
         <input
           type="text"
           className="search"
-          placeholder="Enter Personalized Image Text"
+          placeholder="Personalized Text"
           name="myText"
           value={formInput.myText}
           onChange={(event) => {
@@ -62,10 +68,10 @@ const SubmitInput = ({ onSendInput }) => {
           }}
         />
       </form>
+      <br></br>
       <button type="submit" onClick={submitFormData}>
         Submit
       </button>
-      {/* <img src={myImage} alt="Your Image" /> */}
     </div>
   );
 };
