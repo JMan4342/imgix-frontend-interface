@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SubmitInput = ({ sendInput }) => {
+const SubmitInput = ({ onSendInput }) => {
   const clearData = {
     myImageUrl: "",
     myColorOverlay: "#111111",
@@ -9,6 +9,7 @@ const SubmitInput = ({ sendInput }) => {
   };
 
   const [formInput, setFormInput] = useState(clearData);
+  // const [myImage, setMyImage] = useState("");
 
   const submitFormData = () => {
     const imageInfo = {
@@ -17,9 +18,10 @@ const SubmitInput = ({ sendInput }) => {
       myText: formInput.myText,
       // myTextAlign: formInput.myTextAlign,
     };
-    console.log({imageInfo})
-    const sendInput = `${imageInfo.myImageUrl}?txt=${imageInfo.myText}&blend=${imageInfo.myColorOverlay}`;
-    console.log({sendInput})
+    console.log({ imageInfo });
+    onSendInput(imageInfo);
+    // setMyImage(imageInfo) = `${imageInfo.myImageUrl}?txt=${imageInfo.myText}&blend=${imageInfo.myColorOverlay}`;
+    // console.log({ myImage });
     setFormInput(clearData);
   };
 
@@ -63,6 +65,7 @@ const SubmitInput = ({ sendInput }) => {
       <button type="submit" onClick={submitFormData}>
         Submit
       </button>
+      {/* <img src={myImage} alt="Your Image" /> */}
     </div>
   );
 };

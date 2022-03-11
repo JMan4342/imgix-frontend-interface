@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import SubmitInput from "./Components/SubmitInput";
-import './App.css';
+import "./App.css";
 
 function App() {
-  // const onSubmit = (value) => {
-  //   sendInput(value);
-  //   console.log({value})
-  // };
+  const [myImageUrl, setMyImageUrl] = useState("Your Image Preview");
+
+  // myImage = `${imageInfo.myImageUrl}?txt=${imageInfo.myText}&blend=${imageInfo.myColorOverlay}`;
 
   return (
     <div className="App">
       <h1>Create Your imgix Image</h1>
-      <SubmitInput 
-      // sendInput={onSubmit}
+      <SubmitInput
+        onSendInput={(imageInfo) => setMyImageUrl(`${imageInfo.myImageUrl}?txt=${imageInfo.myText}&blend=${imageInfo.myColorOverlay}`)}
       />
+      <img src={myImageUrl} alt="My Image" />
     </div>
   );
 }
