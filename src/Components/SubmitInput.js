@@ -13,12 +13,12 @@ const SubmitInput = ({ sendInput }) => {
   const submitFormData = () => {
     const imageInfo = {
       myImageUrl: formInput.myImageUrl,
-      myColorOverlay: formInput.myColorOverlay,
+      myColorOverlay: formInput.myColorOverlay.slice(1),
       myText: formInput.myText,
       // myTextAlign: formInput.myTextAlign,
     };
     console.log({imageInfo})
-    const sendInput = `${imageInfo.myImageUrl} + ${imageInfo.myColorOverlay} + ${imageInfo.myText}`;
+    const sendInput = `${imageInfo.myImageUrl}?txt=${imageInfo.myText}&blend=${imageInfo.myColorOverlay}`;
     console.log({sendInput})
     setFormInput(clearData);
   };
